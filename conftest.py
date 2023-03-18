@@ -4,8 +4,9 @@ from src.config.config import config
 
 
 class User:
-    def __init__(self, name, age) -> None:
+    def __init__(self, name, password, age) -> None:
         self.name = name
+        self.password = password
         self.age = age
 
     def remove(self):
@@ -18,7 +19,7 @@ class User:
 def user():
     # before test
     print("Create user")
-    user = User(config.get("BASE_URL_UI"), 42)
+    user = User(config.get("USER_LOGIN"), config.get("USER_PASSWORD"), 42)
 
     # pass user object to test
     yield user

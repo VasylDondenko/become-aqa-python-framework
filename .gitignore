@@ -1,5 +1,2 @@
-src/__pycache__/*
-tests/__pycache__/*
 .idea/*
-__pycache__/*
-src/config/__pycache__/*
+__pycache__/

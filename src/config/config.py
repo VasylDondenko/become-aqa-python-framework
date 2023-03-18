@@ -2,7 +2,8 @@ import os
 
 from src.config.providers.config_from_env_provider import ConfigFromEnvProvider
 from src.config.providers.config_from_json_provider import ConfigFromSimpleJsonProvider
-
+from src.config.providers.config_from_xml_provider import ConfigFromXmlProvider
+import xml.etree.ElementTree as ET
 
 class Config:
     default_env = "dev"
@@ -15,15 +16,24 @@ class Config:
             target = Config.default_env
 
         json_path = f"src/config/env_configs/{target}.json"
+        xml_path = f"src/config/env_configs/{target}.xml"
 
         # Hierarhy of providers
         self.providers = [
             ConfigFromSimpleJsonProvider(json_path),
+            # ConfigFromXmlProvider(xml_path), # moved to TRY
             ConfigFromEnvProvider(),
             ]
 
+        try:
+            self.providers.insert(1, ConfigFromXmlProvider(xml_path))
+        except FileNotFoundError:
+            pass
+
         self.register("BASE_URL_API")
         self.register("BASE_URL_UI")
+        self.register("USER_LOGIN")
+        self.register("USER_PASSWORD")
 
     def register(self, name):
         """

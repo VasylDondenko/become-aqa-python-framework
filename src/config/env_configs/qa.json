@@ -1,4 +1,6 @@
 {
   "BASE_URL_API": "QA_EXAMPLE_2",
-  "BASE_URL_UI": "QA_EXAMPLE_2"
+  "BASE_URL_UI": "QA_EXAMPLE_2",
+  "USER_LOGIN": "QA_JSON_user_login_KLKLHLKHJ",
+  "USER_PASSWORD": "QA_JSON_user_password_&^(*&^(*&^"
 }

@@ -16,6 +16,10 @@ def test_ui_POM():
 
 def test_user_name(user):
     print("Username is: " + user.name)
+    print("User password is: " + user.password)
+    print("User age is: " + str(user.age))
+
+    assert user.age > 0
 # def foo():
 #     pass
 
